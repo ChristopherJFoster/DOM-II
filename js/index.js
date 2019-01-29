@@ -32,3 +32,16 @@ bodyElement.addEventListener("keydown", event =>
 navElement.addEventListener("click", event => {
   event.preventDefault();
 });
+
+// listener type 5: dblclick
+const headerImage = document.querySelector("header img");
+headerImage.addEventListener("dblclick", event => {
+  headerImage.style.borderRadius === "50px"
+    ? (headerImage.style.borderRadius = "0")
+    : (headerImage.style.borderRadius = "50px");
+});
+
+// listener type 6: resize
+window.addEventListener("resize", event => {
+  bodyElement.style.backgroundColor = "lemonchiffon";
+});
