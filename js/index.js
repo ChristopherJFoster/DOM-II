@@ -56,3 +56,21 @@ window.addEventListener("scroll", event => {
 
 // listener type 8: load
 window.addEventListener("load", event => alert("Welcome to my site!"));
+
+// listener type 9: copy
+// Because of the keydown event (above), you'll have to right-click and select "Copy..." to test this.
+const introP = document.querySelector(".intro p");
+introP.addEventListener("copy", event => (introP.style.color = "red"));
+
+// listener type 10: beforeprint
+// Because of the keydown event (above), you'll have to right-click and select "Print..." to test this.
+// audio code borrowed from: http://marcgg.com/blog/2016/11/01/javascript-audio/
+window.addEventListener("beforeprint", event => {
+  const context = new AudioContext();
+  const o = context.createOscillator();
+  const g = context.createGain();
+  o.connect(g);
+  g.connect(context.destination);
+  o.start(0);
+  g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 4);
+});
