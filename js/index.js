@@ -43,5 +43,16 @@ headerImage.addEventListener("dblclick", event => {
 
 // listener type 6: resize
 window.addEventListener("resize", event => {
-  bodyElement.style.backgroundColor = "lemonchiffon";
+  // According to mdn documentation, only the window can handle resize events (makes sense I guess). Also the window is already an object in the DOM - I didn't need to (and couldn't) grab it with document methods.
+  bodyElement.style.backgroundColor = "lemonchiffon"; // It clicked that even though the event is handled by the window, callback function can target anything.
 });
+
+// listener type 7: scroll
+const textContentFirstP = document.querySelector(".text-content p");
+console.log(textContentFirstP);
+window.addEventListener("scroll", event => {
+  textContentFirstP.style.fontSize = "4rem";
+});
+
+// listener type 8: load
+window.addEventListener("load", event => alert("Welcome to my site!"));
